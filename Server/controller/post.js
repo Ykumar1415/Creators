@@ -216,6 +216,8 @@ exports.getPostDetails = asyncHandler(async (req, res, next) => {
 
 //! to get all the posts of the user
 exports.getAllPosts = asyncHandler(async (req, res, next) => {
+
+
     let posts = await Post.find({ user: req.user.id }).populate([
         {
             path: 'comments', select: 'content id',
